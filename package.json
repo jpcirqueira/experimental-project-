@@ -26,6 +26,7 @@
       "^~/(.*)": "<rootDir>/src/$1"
     },
     "moduleFilesAfterEnv": [
+      "jest-localstorage-mock",
       "@testing-library/react/cleanup-after-each",
       "@testing-library/jest-dom/extend-expect"
     ]
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "jest-localstorage-mock": "^2.4.0",
     "react-app-rewired": "^2.1.5"
   }
 }
