@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
+import {addelement} from '../store/modules/element/actions';
+
 export default function PostList() {
 
     const [ newElement, setNewElement] = useState([]);
@@ -9,7 +11,7 @@ export default function PostList() {
     const dispatch = useDispatch()
 
     function handleAddElement() {
-        dispatch({type: 'ADD_ELEMENT', payload: { element: newElement}})
+        dispatch(addelement(newElement))
         setNewElement('')
     }
 
