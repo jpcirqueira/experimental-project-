@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
+import AddList from './components/addList';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AddList />
   </React.StrictMode>,
   document.getElementById('root')
 );
