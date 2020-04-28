@@ -5,3 +5,18 @@ return {
     }
 
 }
+
+export function getElementSuccess(data) {
+    return {
+        type: 'ADD_ELEMENT_SUCCESS',
+        payload: { data }
+    }
+}
+
+export function getElementFailure() {
+    return {
+        type: 'ADD_ELEMENT_FAILURE',
+
+    }
+}
+
