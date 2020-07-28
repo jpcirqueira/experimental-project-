@@ -1,25 +1,23 @@
 import React from 'react';
 import { Formik } from 'formik';
 import "./styles.css";
+import * as Yup from 'yup';
 
 export default function TestFormik(){
+//    let yup = require('yup');
 
+    const contactSchema = Yup.object().shape({
+      email: Yup
+            .string()
+            .email()
+            .required(),
+    })
     return(
         <div className="fundo">
         <Formik
           className="form"
           initialValues={{name:'', email: '', password: '' }}
-          validate={values => {
-            const errors = {};
-            if (!values.email) {
-              errors.email = 'Required';
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = 'invalid email';
-            }
-            return errors;
-          }}
+          validationSchema={contactSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
