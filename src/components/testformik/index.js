@@ -4,19 +4,28 @@ import "./styles.css";
 import * as Yup from 'yup';
 
 export default function TestFormik(){
-//    let yup = require('yup');
 
+    const initial_values = {name:'', email: '', password: '' }
     const contactSchema = Yup.object().shape({
       email: Yup
             .string()
             .email()
             .required(),
     })
+
+    function getStyles(errors) {
+      if (errors){
+        return {
+          border: '1px solid red'
+        }
+      }
+    }
+
     return(
         <div className="fundo">
         <Formik
           className="form"
-          initialValues={{name:'', email: '', password: '' }}
+          initialValues={initial_values}
           validationSchema={contactSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -42,6 +51,7 @@ export default function TestFormik(){
                onChange={handleChange}
                onBlur={handleBlur}
                value={values.name}
+               placeholder="name"
                />
               {errors.name && touched.name && errors.name}
               <h2>email:</h2>
@@ -51,6 +61,8 @@ export default function TestFormik(){
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
+                placeholder="email"
+                style={getStyles(errors.email)}
               />
               {errors.email && touched.email && errors.email}
               <h2>password:</h2>
@@ -60,6 +72,7 @@ export default function TestFormik(){
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
+                placeholder="password"
               />
               {errors.password && touched.password && errors.password}
               
