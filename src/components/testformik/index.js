@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import "./styles.css";
 import * as Yup from 'yup';
 
-export default function TestFormik(){
+export default function TesteFormik(){
 
     const initial_values = {name:'', email: '', password: '' }
     const contactSchema = Yup.object().shape({
